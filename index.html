@@ -24,15 +24,25 @@
       margin: 0;
       padding: 0;
     }
+    /* Style the list item containers */
+    .list ul > div
+    {
+        display: flex;
+        height: 54px;
+    }
     /* Style the list items */
-    .list ul li {
+    .list ul > div li {
       cursor: pointer;
       position: relative;
+      height: 54px;
       padding: 12px 8px 12px 40px;
       list-style-type: none;
       background: #eee;
       font-size: 18px;
       transition: 0.2s;
+        
+      /* Make each list item 80% the width of the ul container */
+      width: 80%;
 
       /* make the list items unselectable */
       -webkit-user-select: none;
@@ -41,21 +51,28 @@
       user-select: none;
     }
     /* Set all odd list items to a different color (zebra-stripes) */
-    .list ul li:nth-child(odd) {
+    .list ul > div:nth-child(odd) li {
       background: #f9f9f9;
     }
+    /* Set all odd expand button items to a different color (zebra-stripes) */
+    .list ul > div:nth-child(odd) button {
+      background-color: #f9f9f9;
+    }
+    .list ul > div:nth-child(even) button {
+      background-color: #eeeeee;
+    }
     /* Darker background-color on hover */
-    .list ul li:hover {
+    .list ul > div li:hover {
       background: #BBDEFB;
     }
     /* When clicked on, add a background color and strike out text */
-    .list ul li.checked {
+    .list ul > div li.checked {
       background: #888;
       color: #fff;
       /*text-decoration: line-through;*/
     }
     /* Add a "checked" mark when clicked on */
-    .list ul li.checked::before {
+    .list ul > div li.checked::before {
       content: '';
       position: absolute;
       border-color: #fff;
@@ -66,6 +83,20 @@
       transform: rotate(45deg);
       height: 15px;
       width: 7px;
+    }
+    /* Style the Expand buttons */
+    .list ul > div button
+    {
+        cursor: pointer;
+        border: none;
+        height: 54px;
+        padding: 12px;    
+        color: #212529;
+    }
+    /* Darker background-color on hover */
+    .list ul > div button:hover {
+        background: #BBDEFB;
+        color: #212529;
     }
     /* Style the close button */
     .close {
@@ -184,60 +215,723 @@
         <div class="col-lg-8 mx-auto">
           <h2>Core Courses</h2>
             <b>CEE: Civil Engineering Core Courses</b>
-            <ul id="myUL"> 
-              <li> CEE 1503: Intro to Environmental Engineering </li>
-              <li> CEE 0109: Computer Methods in Civil Engineering </li>
-              <li> CEE 1105: Materials of Construction </li>
-              <li> CEE 1330: Introduction to Structural Analysis  </li>
-              <li> CEE 1402: Fluid Mechanics </li>
-              <li> CEE 1811: Principles of Soil Mechanics </li>
-              <li> CEE 1703: Transportation Engineering </li>
-              <li> CEE 1200: Construction Management </li>
-              <li> CEE 1609: Life Cycle Assessment or CEE 1610: Engineering and Sustainable Development or CEE 1618: Design for the Environment </li>
-              <li> CEE 1412: Introduction to Water Resources Engineering </li>
-              <li> CEE 1085: Department Seminar </li>
+            <ul id="myUL">
+                <div>
+                    <li>CEE 1503: Intro to Environmental Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#1503">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="1503" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CEE 1503: Intro to Environmental Engineering</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>CEE 0109: Computer Methods in Civil Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0109">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0109" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CEE 0109: Computer Methods in Civil Engineering</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>CEE 1105: Materials of Construction </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#1105">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="1105" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CEE 1105: Materials of Construction</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>CEE 1330: Introduction to Structural Analysis  </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#1330">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="1330" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CEE 1330: Introduction to Structural Analysis</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>CEE 1402: Fluid Mechanics </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#1402">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="1402" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CEE 1402: Fluid Mechanics</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>CEE 1811: Principles of Soil Mechanics </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#1811">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="1811" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CEE 1811: Principles of Soil Mechanics</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>CEE 1703: Transportation Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#1703">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="1703" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CEE 1703: Transportation Engineering</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>CEE 1200: Construction Management </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#1200">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="1200" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CEE 1200: Construction Management</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>CEE 1609: Life Cycle Assessment or CEE 1610: Engineering and Sustainable Development or CEE 1618: Design for the Environment </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#1609">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="1609" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CEE 1609: Life Cycle Assessment or CEE 1610: Engineering and Sustainable Development or CEE 1618: Design for the Environment</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>CEE 1412: Introduction to Water Resources Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#1412">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="1412" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CEE 1412: Introduction to Water Resources Engineering</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>CEE 1085: Department Seminar </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#1085">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="1085" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CEE 1085: Department Seminar</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ul>
             <b>CHEM: Chemistry Core Courses</b>
-            <ul> 
-              <li> CHEM 0960: General Chem for Engineers 1 </li>
-              <li> CHEM 0970: General Chem for Engineers 2 </li>
+            <ul>
+                <div>
+                    <li>CHEM 0960: General Chem for Engineers 1 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0960">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0960" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CHEM 0960: General Chem for Engineers 1</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>CHEM 0970: General Chem for Engineers 2 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0970">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0970" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">CHEM 0970: General Chem for Engineers 2</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
            </ul> 
             <b>ENGR: Engineering Core Courses </b>
             <ul> 
-              <li> ENGR 0011: Intro to Engineering Analysis </li>
-              <li> ENGR 0081: Freshman Engineering Seminar 1 </li>
-              <li> ENGR 0082: Freshman Engineering Seminar 2 </li>
-              <li> ENGR 0012: Intro to Engineering Computing </li>
-              <li> ENGR 0131: Statics for Civil and Environmental Engineers </li>
-              <li> ENGR 0020: Probability and Statistics for Engineers 1 </li>
-              <li> ENGR 0141: Mechanics of Materials for Civil Engineers </li>
-              <li> ENGR 0151: Dynamics for Civil Engineers </li>
+                <div>
+                    <li>ENGR 0011: Intro to Engineering Analysis </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0011">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0011" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">ENGR 0011: Intro to Engineering Analysis</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>ENGR 0081: Freshman Engineering Seminar 1 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0081">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0081" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">ENGR 0081: Freshman Engineering Seminar 1</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>ENGR 0082: Freshman Engineering Seminar 2 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0082">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0082" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">ENGR 0082: Freshman Engineering Seminar 2</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>ENGR 0012: Intro to Engineering Computing </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0012">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0012" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">ENGR 0012: Intro to Engineering Computing</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>ENGR 0131: Statics for Civil and Environmental Engineers </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0131">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0131" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">ENGR 0131: Statics for Civil and Environmental Engineers</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>ENGR 0020: Probability and Statistics for Engineers 1 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0020">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0020" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">ENGR 0020: Probability and Statistics for Engineers 1</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>ENGR 0141: Mechanics of Materials for Civil Engineers </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0141">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0141" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">ENGR 0141: Mechanics of Materials for Civil Engineers</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>ENGR 0151: Dynamics for Civil Engineers </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0151">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0151" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">ENGR 0151: Dynamics for Civil Engineers</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
               </ul> 
             <b>ENGCMP: English Composition Core Courses </b>
             <ul> 
-              <li> ENGCMP 0210: Seminar in Composition Writing </li>
-              <li> ENGCMP 0412: Engineering Communication in a Professional Context </li>
-              
+                <div>
+                    <li>ENGCMP 0210: Seminar in Composition Writing </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0210">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0210" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">ENGCMP 0210: Seminar in Composition Writing</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>ENGCMP 0412: Engineering Communication in a Professional Context </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0412">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0412" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">ENGCMP 0412: Engineering Communication in a Professional Context</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
               </ul> 
           
             <b> IE: Industrial Engineering Core Classes </b>  
             <ul> 
-              <li> IE 1040: Engineering Economic Analysis </li>
+                <div>
+                    <li>IE 1040: Engineering Economic Analysis </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#1040">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="1040" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">IE 1040: Engineering Economic Analysis</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ul> 
             <b> MATH: Mathematics Core Courses </b>  
             <ul> 
-              <li> MATH 0220: Analytic Geometry and Calculus 1 </li>
-              <li> MATH 0230: Analytic Geometry and Calculus 2 </li>
-              <li> MATH 0240: Analytic Geometry and Calculus 3 </li>
-              <li> MATH 0290: Differential Equations </li>
+                <div>
+                    <li>MATH 0220: Analytic Geometry and Calculus 1 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0220">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0220" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">MATH 0220: Analytic Geometry and Calculus 1</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>MATH 0230: Analytic Geometry and Calculus 2 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0230">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0230" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">MATH 0230: Analytic Geometry and Calculus 2</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>MATH 0240: Analytic Geometry and Calculus 3 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0240">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0240" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">MATH 0240: Analytic Geometry and Calculus 3</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>MATH 0290: Differential Equations </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0290">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0290" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">MATH 0290: Differential Equations</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
              </ul> 
             <b> PHYS: Physics Core Courses </b>  
             <ul> 
-              <li> PHYS 0174: Basic Physics, Science, and Engineering 1 </li>
-              <li> PHYS 0175: Basic Physics, Science, and Engineering 2  </li>
-              <li> MATH 0240: Analytic Geometry and Calculus 3 </li>
-        
-             </ul> 
+                <div>
+                    <li>PHYS 0174: Basic Physics, Science, and Engineering 1 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0174">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0174" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">PHYS 0174: Basic Physics, Science, and Engineering 1</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>PHYS 0175: Basic Physics, Science, and Engineering 2  </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0175">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="0175" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">PHYS 0175: Basic Physics, Science, and Engineering 2</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Sample text sample text sample text sample text sample text.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li>MATH 0240: Analytic Geometry and Calculus 3 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#0240">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <!-- #0240 was already included in an earlier section --> 
+                </div>
+            </ul> 
         </div>
       </div>
     </div>
@@ -250,11 +944,11 @@
         <div class="col-lg-8 mx-auto">
             <h2> CEE Elective Courses </h2> 
             <ul> 
-              <li> CEE Elective #1 </li>
-              <li> CEE Elective #2 </li>
-              <li> CEE Elective #3 </li>
-              <li> CEE Elective #4 </li>
-              <li> CEE Elective #5 </li>
+              <li>CEE Elective #1 </li>
+              <li>CEE Elective #2 </li>
+              <li>CEE Elective #3 </li>
+              <li>CEE Elective #4 </li>
+              <li>CEE Elective #5 </li>
              </ul> 
             <p> CEE electives include any CEE course that is not already used to satisfy another requiremnt. </p>
             
@@ -273,11 +967,11 @@
             
              <h2> Hummanity/Social Science Elecives  </h2> 
             <ul> 
-              <li> Hummanity/Social Science Elective #1 </li>
-              <li> Hummanity/Social Science Elective #2 </li>
-              <li> Hummanity/Social Science Elective #3 </li>
-              <li> Hummanity/Social Science Elective #4 </li>
-              <li> Hummanity/Social Science Elective #5 </li>
+              <li>Hummanity/Social Science Elective #1 </li>
+              <li>Hummanity/Social Science Elective #2 </li>
+              <li>Hummanity/Social Science Elective #3 </li>
+              <li>Hummanity/Social Science Elective #4 </li>
+              <li>Hummanity/Social Science Elective #5 </li>
              </ul> 
             <form action="https://www.engineering.pitt.edu/approved_elective_old/" target="_blank">
             <input type = "submit" value="Click here to see approved electives" />
@@ -295,7 +989,7 @@
             
              <h2> ENGR Elective  </h2> 
             <ul> 
-              <li> ENGR Elective </li>
+              <li>ENGR Elective </li>
              
              </ul> 
             
@@ -315,7 +1009,7 @@
             
              <h2> Science Elective  </h2> 
             <ul> 
-              <li> Science Elective </li>
+              <li>Science Elective </li>
              
              </ul> 
             
@@ -334,12 +1028,12 @@
             
              <h2> Senior Design Project  </h2> 
             <ul> 
-              <li> Construction Design Project </li>
-              <li> Structural Design Project </li>
-              <li> Water Resources Design Project </li>
-              <li> Environmetnal Engineering Design Project </li>
-              <li> Transportation Design Project </li>
-              <li> Geotechnical Design Project </li>
+              <li>Construction Design Project </li>
+              <li>Structural Design Project </li>
+              <li>Water Resources Design Project </li>
+              <li>Environmetnal Engineering Design Project </li>
+              <li>Transportation Design Project </li>
+              <li>Geotechnical Design Project </li>
              </ul> 
             
             <p> You may enroll in only one design project. </p>
