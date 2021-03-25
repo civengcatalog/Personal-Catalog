@@ -50,6 +50,11 @@
       -ms-user-select: none;
       user-select: none;
     }
+    /* For the lists that do not have more info to show on a pop up, make the list items take up the full width */
+      .list ul.noButtonList > div li
+      {
+          width: 90%;
+      }
     /* Set all odd list items to a different color (zebra-stripes) */
     .list ul > div:nth-child(odd) li {
       background: #f9f9f9;
@@ -90,8 +95,10 @@
         cursor: pointer;
         border: none;
         height: 54px;
+        width: 74px;
         padding: 12px;    
         color: #212529;
+        border-radius: 0px;
     }
     /* Darker background-color on hover */
     .list ul > div button:hover {
@@ -943,12 +950,22 @@
       <div class="row list">
         <div class="col-lg-8 mx-auto">
             <h2> CEE Elective Courses </h2> 
-            <ul> 
+            <ul class="noButtonList"> 
+                <div>
               <li>CEE Elective #1 </li>
+                </div>
+                <div>
               <li>CEE Elective #2 </li>
+                </div>
+                <div>
               <li>CEE Elective #3 </li>
+                </div>
+                <div>
               <li>CEE Elective #4 </li>
+                </div>
+                <div>
               <li>CEE Elective #5 </li>
+                </div>
              </ul> 
             <p> CEE electives include any CEE course that is not already used to satisfy another requiremnt. </p>
             
@@ -966,12 +983,22 @@
         <div class="col-lg-8 mx-auto">
             
              <h2> Hummanity/Social Science Elecives  </h2> 
-            <ul> 
-              <li>Hummanity/Social Science Elective #1 </li>
-              <li>Hummanity/Social Science Elective #2 </li>
-              <li>Hummanity/Social Science Elective #3 </li>
-              <li>Hummanity/Social Science Elective #4 </li>
-              <li>Hummanity/Social Science Elective #5 </li>
+            <ul class="noButtonList"> 
+                <div>
+                    <li>Hummanity/Social Science Elective #1 </li>
+                </div>
+                <div>
+                    <li>Hummanity/Social Science Elective #2 </li>
+                </div>
+                <div>
+                    <li>Hummanity/Social Science Elective #3 </li>
+                </div>
+                <div>
+                    <li>Hummanity/Social Science Elective #4 </li>
+                </div>
+                <div>
+                    <li>Hummanity/Social Science Elective #5 </li>
+                </div>
              </ul> 
             <form action="https://www.engineering.pitt.edu/approved_elective_old/" target="_blank">
             <input type = "submit" value="Click here to see approved electives" />
@@ -988,9 +1015,10 @@
         <div class="col-lg-8 mx-auto">
             
              <h2> ENGR Elective  </h2> 
-            <ul> 
-              <li>ENGR Elective </li>
-             
+            <ul class="noButtonList"> 
+                <div>
+                    <li>ENGR Elective </li>
+                </div>
              </ul> 
             
             <form action="List of ENGR electives (1).pdf" target="_blank">
@@ -1008,9 +1036,10 @@
         <div class="col-lg-8 mx-auto">
             
              <h2> Science Elective  </h2> 
-            <ul> 
-              <li>Science Elective </li>
-             
+            <ul class="noButtonList"> 
+                <div>
+                    <li>Science Elective </li>
+                </div>
              </ul> 
             
             <form action = "Science Electives.pdf" target="_blank">
@@ -1027,13 +1056,25 @@
         <div class="col-lg-8 mx-auto">
             
              <h2> Senior Design Project  </h2> 
-            <ul> 
-              <li>Construction Design Project </li>
-              <li>Structural Design Project </li>
-              <li>Water Resources Design Project </li>
-              <li>Environmetnal Engineering Design Project </li>
-              <li>Transportation Design Project </li>
-              <li>Geotechnical Design Project </li>
+            <ul class="noButtonList"> 
+                <div>
+                    <li>Construction Design Project </li>
+                </div>
+                <div>
+                    <li>Structural Design Project </li>
+                </div>
+                <div>
+                    <li>Water Resources Design Project </li>
+                </div>
+                <div>
+                    <li>Environmetnal Engineering Design Project </li>
+                </div>
+                <div>
+                    <li>Transportation Design Project </li>
+                </div>
+                <div>
+                    <li>Geotechnical Design Project </li>
+                </div>
              </ul> 
             
             <p> You may enroll in only one design project. </p>
