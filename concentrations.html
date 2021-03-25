@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  
+  <!-- begin style================================================== -->
+  
+  <style>
+    body {
+      margin: 0;
+      min-width: 250px;
+    }
+    /* Include the padding and border in an element's total width and height */
+    * {
+      box-sizing: border-box;
+    }
+    /* Remove margins and padding from the list */
+    .list ul {
+      margin: 0;
+      padding: 0;
+    }
+    /* Style the list items */
+    .list ul li {
+      cursor: pointer;
+      position: relative;
+      padding: 12px 8px 12px 40px;
+      list-style-type: none;
+      background: #eee;
+      font-size: 18px;
+      transition: 0.2s;
+
+      /* make the list items unselectable */
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    /* Set all odd list items to a different color (zebra-stripes) */
+    .list ul li:nth-child(odd) {
+      background: #f9f9f9;
+    }
+    /* Darker background-color on hover */
+    .list ul li:hover {
+      background: #BBDEFB;
+    }
+    /* When clicked on, add a background color and strike out text */
+    .list ul li.checked {
+      background: #888;
+      color: #fff;
+      /*text-decoration: line-through;*/
+    }
+    /* Add a "checked" mark when clicked on */
+    .list ul li.checked::before {
+      content: '';
+      position: absolute;
+      border-color: #fff;
+      border-style: solid;
+      border-width: 0 2px 2px 0;
+      top: 10px;
+      left: 16px;
+      transform: rotate(45deg);
+      height: 15px;
+      width: 7px;
+    }
+    /* Style the close button */
+    .close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 12px 16px 12px 16px;
+    }
+    .close:hover {
+      background-color: #f44336;
+      color: white;
+    }
+    /* Style the header */
+    .header {
+      background-color: #64B5F6;
+      padding: 30px 40px;
+      color: white;
+      text-align: center;
+    }
+    /* Clear floats after the header */
+    .header:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    /* Style the input */
+    input {
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      width: 75%;
+      padding: 10px;
+      float: left;
+      font-size: 16px;
+    }
+  </style>
+  
+  <!-- end style =================================================== -->
+  <title>Virtual Advisor</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="images/1200px-University_of_Pittsburgh_seal.svg.png" width="8%" /></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1> Concentration Requirements </h1>
+      <p class="lead"> This checklist keeps track of all concentration requirements. Students must take two design electives from the given list: one from the desired concentration field, and one from a different concentration field. In addition to design electives, two of the five CEE electives you take must be on the appropiate list of the desired concentration. Concentrations are listed on your degree, but not required for graduation.  </p>
+    </div>
+  </header>
+
+  
+
+   
+
+  <section id="services" class="bg-light">
+    <div class="container">
+      <div class="row list">
+        <div class="col-lg-8 mx-auto">
+          <h2> Design Electives </h2>
+           <b> Structural Engineering </b>
+            <ul id="myUL"> 
+              <li> CEE 1335: Design of Structures </li>
+              </ul>
+            <b> Water Resources Engineering </b>
+            <ul> 
+              <li> CEE 1401: Open Channel Hydraulics Design </li>
+              <li> CEE 1410: Water Resources Engineering Design </li>
+           </ul> 
+            <b> Environmental Engineering </b>
+            <ul> 
+              <li> CEE 1505: Water Treatment and Distribution System Design </li>
+              <li> CEE 1513: Environmental Engineering Proccesses </li>
+              <li> CEE 1515: Wastewater Collection and Treatment Plant Design </li>
+             
+              </ul> 
+            <b> Geotechnical Engineering </b>
+            <ul> 
+              <li> CEE 1821: Foundation Engineering </li>
+              <li> CEE 1714: Pavement Design and Analysis </li>
+              <li> CEE 1715: Pavement Maintenance and Rehab </li>
+              <li> CEE 1717: Components, Properties and Design of Portland Cement Concrete </li>
+              <li> CEE 1718: Advanced Construction and Bituminous Materials </li>
+              <li> CEE 2814: Slopes and Earth Retaining Structures </li>
+              </ul> 
+          
+            <b> Transportation Engineering </b>  
+            <ul> 
+              <li> CEE 1700: Traffic Management and Operations </li>
+              <li> CEE 1730: Highway Engineering </li>
+            </ul> 
+           
+        </div>
+      </div>
+    </div>
+  </section>
+
+    
+    
+    <section id="contact" class="bg-light">
+    <div class="container">
+      <div class="row list">
+        <div class="col-lg-8 mx-auto">
+            
+             <h2> CEE Electives  </h2>
+            <b> Structural Engineering </b>
+            <ul> 
+              <li> CEE 1340: Concrete Structures 1 </li>
+              <li> CEE 1341: Steel Structures 1 </li>
+                 <li> CEE 1370: Introduction to Nondestructive Evaluation and Structural Health Monitoring </li>
+                 <li> CEE 2320: Advanced Mechanics of Materials </li>
+                 <li> CEE 2330: Advanced Structural Analysis </li>
+                 <li> CEE 2333: Introduction to Finite Elements </li>
+                 <li> CEE 2340: Concrete Structures 2 </li>
+                 <li> CEE 2341: Steel Structures 2 </li>
+                 <li> CEE 2343: Prestressed Concrete </li>
+                 <li> CEE 2346: Repair and Retrofit of Structures </li>
+                 <li> CEE 2347: Bridge Engineering </li>
+                 <li> CEE 2360: Dynamics of Structures </li>
+                
+                </ul> 
+            
+            <b> Water Resources Engineering </b>
+             <ul>
+                <li> CEE 1401: Open Channel Hydraulics Design </li>
+                <li> GEOL 1051: Groundwater Geology </li>
+                <li> GEOL 1445: GIS, GPS, and Computer Methods </li>
+            
+            </ul>
+            
+            <b> Environmental Engineering </b>
+            <ul>
+            <li> CEE 1504: Chemistry in Civil Engineering </li>
+            <li> CEE 1505: Water Treatment and Distributuin System Design </li>
+            <li> CEE 1514: Environmental Impact Assessment </li>
+            <li> CEE 1515: Wastewater Collection and Treatment Plant Design </li>
+            <li> CEE 1520: Material and Energy Balances in Environmental Engineering </li>
+            <li> CEE 1522: Fate and Transport in Environmental Engineering </li>
+            <li> CEE 1523: Environmental Engineering Lab </li>
+            <li> CEE 1800: Engineering Geology </li>
+            <li> CEE 2500: Environmental Engineering Microbiology </li>
+            <li> CEE 2501: Environmental Engineering Chemistry </li>
+            <li> GEOL 1445: GIS, GPS, and Computer Methods </li>
+            </ul>
+            
+            <b> Geotechnical Engineering </b>
+            <ul>
+            <li> CEE 1340: Concrete Structures 1 </li>
+            <li> CEE 1714: Pavement Design and Analysis </li>
+            <li> CEE 1715: Pavement Maintenance and Rehab </li>
+            <li> CEE 1717: Components, Properties and Design of Portland Cement Concrete </li>
+            <li> CEE 1718: Advanced Construction and Bituminous Materials </li>
+            <li> CEE 1821: Foundation Engineering </li>
+            <li> CEE 2801: Advanced Soil Mechanics </li>
+            <li> CEE 2802: Geotechnical Analysis </li>
+            <li> CEE 2814: Slopes and Earth Retaining Structures </li>
+            <li> ENGR 1631: Introduction to Mining Engineering </li>
+            <li> ENGR 1632: Sustainable Development and The Mineral Industry </li>
+            <li> ENGR 1634: Environmental Controls in Mining </li>
+            <li> ENGR 1635: Mine Ventilation Engineering </li>
+            <li> ENGR 1637: Strata Control Engineering </li>
+            <li> ENGR 1638: Mining Health and Safety </li>
+            <li> GEOL 1445: GIS, GPS, and Computer Methods</li>
+             </ul>
+            
+            <b> Transportation Engineering </b>
+            <ul>
+            <li> CEE 1700: Traffic Management and Operations </li>
+            <li> CEE 1710: Traffic Control Systems </li>
+            <li> CEE 1711: Advanced Transportation Management Strategies </li>
+            <li> CEE 1714: Pavement Design and Analysis </li>
+            <li> CEE 1715: Pavement Maintenance and Rehab </li>
+            <li> CEE 1717: Components, Properties and Design of Portland Cement Concrete </li>
+            <li> CEE 1718: Advanced Construction and Bituminous Materials </li>
+            <li> CEE 1720: Urban Transportation Planning </li>
+            <li> CEE 1725: Public Transportation Systems </li>
+            <li> CEE 1730: Highway Engineering </li>
+            </ul>
+            
+            <b> Construction Management </b>
+            <ul>
+            <li> CEE 1609: Life Cycle Assessment Methods and Tools </li>
+            <li> CEE 1610: Engineering and Sustainable Development </li>
+            <li> CEE 1618: Design for the Environment </li>
+            <li> CEE 2201: Construction Cost Engineering </li>
+            <li> CEE 2202: Construction Scheduling </li>
+            <li> CEE 2203: Construction Methods and Equipment </li>
+            <li> CEE 2204: Construction Law and Risk Management </li>
+            <li> CEE 2205: Construction Finance and Cost Control </li>
+            <li> CEE 2206: Construction and Cost of Electricity Supply </li>
+            <li> CEE 2207: Construction and Cost of Mechanical Systems </li>
+            <li> CEE 2230: Building Information Modeling </li>
+            <li> GEOL 1445: GIS, GPS, and Computer Methods </li>
+            </ul>
+            </div>
+      </div>
+    </div>
+  </section>
+
+       
+    
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; University of Pittsburgh 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+  <!-- Function ================================ -->
+  
+  <script>
+    // Add a "checked" symbol when clicking on a list item
+    var lists = document.querySelectorAll('ul');
+    var i;
+    for (i = 0; i < lists.length; i++) {
+      lists[i].addEventListener('click', function(ev) {
+          if (ev.target.tagName === 'LI') {
+            ev.target.classList.toggle('checked');
+          }
+      }, false);
+    }
+</script>
+  
+  <!-- end Function ============================ -->
+</body>
+</html>
