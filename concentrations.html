@@ -24,15 +24,25 @@
       margin: 0;
       padding: 0;
     }
+    /* Style the list item containers */
+    .list ul > div
+    {
+        display: flex;
+        height: 54px;
+    }
     /* Style the list items */
-    .list ul li {
+    .list ul > div li {
       cursor: pointer;
       position: relative;
+      height: 54px;
       padding: 12px 8px 12px 40px;
       list-style-type: none;
       background: #eee;
       font-size: 18px;
       transition: 0.2s;
+        
+      /* Make each list item 80% the width of the ul container */
+      width: 80%;
 
       /* make the list items unselectable */
       -webkit-user-select: none;
@@ -40,22 +50,34 @@
       -ms-user-select: none;
       user-select: none;
     }
+    /* For the lists that do not have more info to show on a pop up, make the list items take up the full width */
+      .list ul.noButtonList > div li
+      {
+          width: 90%;
+      }
     /* Set all odd list items to a different color (zebra-stripes) */
-    .list ul li:nth-child(odd) {
+    .list ul > div:nth-child(odd) li {
       background: #f9f9f9;
     }
+    /* Set all odd expand button items to a different color (zebra-stripes) */
+    .list ul > div:nth-child(odd) button.btn-primary {
+      background-color: #f9f9f9;
+    }
+    .list ul > div:nth-child(even) button.btn-primary {
+      background-color: #eeeeee;
+    }
     /* Darker background-color on hover */
-    .list ul li:hover {
+    .list ul > div li:hover {
       background: #BBDEFB;
     }
     /* When clicked on, add a background color and strike out text */
-    .list ul li.checked {
+    .list ul > div li.checked {
       background: #888;
       color: #fff;
       /*text-decoration: line-through;*/
     }
     /* Add a "checked" mark when clicked on */
-    .list ul li.checked::before {
+    .list ul > div li.checked::before {
       content: '';
       position: absolute;
       border-color: #fff;
@@ -67,12 +89,30 @@
       height: 15px;
       width: 7px;
     }
+    /* Style the Expand buttons */
+    .list ul > div button
+    {
+        cursor: pointer;
+        border: none;
+        height: 54px;
+        width: 74px;
+        padding: 12px;    
+        color: #212529;
+        border-radius: 0px;
+    }
+    /* Darker background-color on hover */
+    .list ul > div button:hover {
+        background: #BBDEFB;
+        color: #212529;
+    }
     /* Style the close button */
-    .close {
-      position: absolute;
-      right: 0;
-      top: 0;
-      padding: 12px 16px 12px 16px;
+    .close 
+    {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 12px 16px 12px 16px;
+        background-color: red;
     }
     .close:hover {
       background-color: #f44336;
@@ -101,6 +141,10 @@
       float: left;
       font-size: 16px;
     }
+    .list button.btn-secondary
+      {
+          background-color: #eeeeee;
+      }
     /* Highlight this page on the sidenav */
     .sidenav a#concentrations
     {
@@ -129,7 +173,8 @@
     <a class="nav-link js-scroll-trigger" id="sampleschedule" href="sampleschedule.html">Sample Schedule</a>
     <a class="nav-link js-scroll-trigger" id="concentrations" href="concentrations.html">Concentration Requirements</a>
 </div>
-
+    
+<div class="content">
   <header class="bg-primary text-white">
     <div class="container text-center">
       <h1> Concentration Requirements </h1>
@@ -137,9 +182,6 @@
     </div>
   </header>
 
-  
-
-   
 
   <section id="services" class="bg-light">
     <div class="container">
@@ -147,35 +189,300 @@
         <div class="col-lg-8 mx-auto">
           <h2> Design Electives </h2>
            <b> Structural Engineering </b>
-            <ul id="myUL"> 
-              <li> CEE 1335: Design of Structures </li>
-              </ul>
+            <ul>
+                <div>
+                    <li> CEE 1335: Design of Structures </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
             <b> Water Resources Engineering </b>
-            <ul> 
-              <li> CEE 1401: Open Channel Hydraulics Design </li>
-              <li> CEE 1410: Water Resources Engineering Design </li>
+            <ul>
+                <div>    
+                    <li> CEE 1401: Open Channel Hydraulics Design </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1410: Water Resources Engineering Design </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
            </ul> 
             <b> Environmental Engineering </b>
             <ul> 
-              <li> CEE 1505: Water Treatment and Distribution System Design </li>
-              <li> CEE 1513: Environmental Engineering Proccesses </li>
-              <li> CEE 1515: Wastewater Collection and Treatment Plant Design </li>
-             
+                <div>
+                    <li> CEE 1505: Water Treatment and Distribution System Design </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1513: Environmental Engineering Proccesses </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1515: Wastewater Collection and Treatment Plant Design </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
               </ul> 
             <b> Geotechnical Engineering </b>
-            <ul> 
-              <li> CEE 1821: Foundation Engineering </li>
-              <li> CEE 1714: Pavement Design and Analysis </li>
-              <li> CEE 1715: Pavement Maintenance and Rehab </li>
-              <li> CEE 1717: Components, Properties and Design of Portland Cement Concrete </li>
-              <li> CEE 1718: Advanced Construction and Bituminous Materials </li>
-              <li> CEE 2814: Slopes and Earth Retaining Structures </li>
-              </ul> 
+            <ul>
+                <div>
+                    <li> CEE 1821: Foundation Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1714: Pavement Design and Analysis </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1715: Pavement Maintenance and Rehab </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1717: Components, Properties and Design of Portland Cement Concrete </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1718: Advanced Construction and Bituminous Materials </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2814: Slopes and Earth Retaining Structures </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ul> 
           
             <b> Transportation Engineering </b>  
             <ul> 
-              <li> CEE 1700: Traffic Management and Operations </li>
-              <li> CEE 1730: Highway Engineering </li>
+                <div>
+                    <li> CEE 1700: Traffic Management and Operations </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1730: Highway Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ul> 
            
         </div>
@@ -189,96 +496,1310 @@
     <div class="container">
       <div class="row list">
         <div class="col-lg-8 mx-auto">
-            
              <h2> CEE Electives  </h2>
             <b> Structural Engineering </b>
             <ul> 
-              <li> CEE 1340: Concrete Structures 1 </li>
-              <li> CEE 1341: Steel Structures 1 </li>
-                 <li> CEE 1370: Introduction to Nondestructive Evaluation and Structural Health Monitoring </li>
-                 <li> CEE 2320: Advanced Mechanics of Materials </li>
-                 <li> CEE 2330: Advanced Structural Analysis </li>
-                 <li> CEE 2333: Introduction to Finite Elements </li>
-                 <li> CEE 2340: Concrete Structures 2 </li>
-                 <li> CEE 2341: Steel Structures 2 </li>
-                 <li> CEE 2343: Prestressed Concrete </li>
-                 <li> CEE 2346: Repair and Retrofit of Structures </li>
-                 <li> CEE 2347: Bridge Engineering </li>
-                 <li> CEE 2360: Dynamics of Structures </li>
-                
+                <div>
+                    <li> CEE 1340: Concrete Structures 1 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1341: Steel Structures 1 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1370: Introduction to Nondestructive Evaluation and Structural Health Monitoring </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2320: Advanced Mechanics of Materials </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2330: Advanced Structural Analysis </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2333: Introduction to Finite Elements </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2340: Concrete Structures 2 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2341: Steel Structures 2 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2343: Prestressed Concrete </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2346: Repair and Retrofit of Structures </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2347: Bridge Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2360: Dynamics of Structures </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            
                 </ul> 
             
             <b> Water Resources Engineering </b>
              <ul>
-                <li> CEE 1401: Open Channel Hydraulics Design </li>
-                <li> GEOL 1051: Groundwater Geology </li>
-                <li> GEOL 1445: GIS, GPS, and Computer Methods </li>
-            
+                <div>
+                    <li> CEE 1401: Open Channel Hydraulics Design </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> GEOL 1051: Groundwater Geology </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> GEOL 1445: GIS, GPS, and Computer Methods </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
             </ul>
             
             <b> Environmental Engineering </b>
             <ul>
-            <li> CEE 1504: Chemistry in Civil Engineering </li>
-            <li> CEE 1505: Water Treatment and Distributuin System Design </li>
-            <li> CEE 1514: Environmental Impact Assessment </li>
-            <li> CEE 1515: Wastewater Collection and Treatment Plant Design </li>
-            <li> CEE 1520: Material and Energy Balances in Environmental Engineering </li>
-            <li> CEE 1522: Fate and Transport in Environmental Engineering </li>
-            <li> CEE 1523: Environmental Engineering Lab </li>
-            <li> CEE 1800: Engineering Geology </li>
-            <li> CEE 2500: Environmental Engineering Microbiology </li>
-            <li> CEE 2501: Environmental Engineering Chemistry </li>
-            <li> GEOL 1445: GIS, GPS, and Computer Methods </li>
+                <div>
+                    <li> CEE 1504: Chemistry in Civil Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1505: Water Treatment and Distributuin System Design </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1514: Environmental Impact Assessment </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1515: Wastewater Collection and Treatment Plant Design </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1520: Material and Energy Balances in Environmental Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1522: Fate and Transport in Environmental Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1523: Environmental Engineering Lab </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1800: Engineering Geology </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2500: Environmental Engineering Microbiology </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2501: Environmental Engineering Chemistry </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> GEOL 1445: GIS, GPS, and Computer Methods </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ul>
             
             <b> Geotechnical Engineering </b>
             <ul>
-            <li> CEE 1340: Concrete Structures 1 </li>
-            <li> CEE 1714: Pavement Design and Analysis </li>
-            <li> CEE 1715: Pavement Maintenance and Rehab </li>
-            <li> CEE 1717: Components, Properties and Design of Portland Cement Concrete </li>
-            <li> CEE 1718: Advanced Construction and Bituminous Materials </li>
-            <li> CEE 1821: Foundation Engineering </li>
-            <li> CEE 2801: Advanced Soil Mechanics </li>
-            <li> CEE 2802: Geotechnical Analysis </li>
-            <li> CEE 2814: Slopes and Earth Retaining Structures </li>
-            <li> ENGR 1631: Introduction to Mining Engineering </li>
-            <li> ENGR 1632: Sustainable Development and The Mineral Industry </li>
-            <li> ENGR 1634: Environmental Controls in Mining </li>
-            <li> ENGR 1635: Mine Ventilation Engineering </li>
-            <li> ENGR 1637: Strata Control Engineering </li>
-            <li> ENGR 1638: Mining Health and Safety </li>
-            <li> GEOL 1445: GIS, GPS, and Computer Methods</li>
+                <div>
+                    <li> CEE 1340: Concrete Structures 1 </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1714: Pavement Design and Analysis </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1715: Pavement Maintenance and Rehab </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1717: Components, Properties and Design of Portland Cement Concrete </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1718: Advanced Construction and Bituminous Materials </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1821: Foundation Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2801: Advanced Soil Mechanics </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2802: Geotechnical Analysis </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2814: Slopes and Earth Retaining Structures </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> ENGR 1631: Introduction to Mining Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> ENGR 1632: Sustainable Development and The Mineral Industry </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> ENGR 1634: Environmental Controls in Mining </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> ENGR 1635: Mine Ventilation Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> ENGR 1637: Strata Control Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> ENGR 1638: Mining Health and Safety </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> GEOL 1445: GIS, GPS, and Computer Methods</li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
              </ul>
             
             <b> Transportation Engineering </b>
             <ul>
-            <li> CEE 1700: Traffic Management and Operations </li>
-            <li> CEE 1710: Traffic Control Systems </li>
-            <li> CEE 1711: Advanced Transportation Management Strategies </li>
-            <li> CEE 1714: Pavement Design and Analysis </li>
-            <li> CEE 1715: Pavement Maintenance and Rehab </li>
-            <li> CEE 1717: Components, Properties and Design of Portland Cement Concrete </li>
-            <li> CEE 1718: Advanced Construction and Bituminous Materials </li>
-            <li> CEE 1720: Urban Transportation Planning </li>
-            <li> CEE 1725: Public Transportation Systems </li>
-            <li> CEE 1730: Highway Engineering </li>
+                <div>
+                    <li> CEE 1700: Traffic Management and Operations </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1710: Traffic Control Systems </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1711: Advanced Transportation Management Strategies </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1714: Pavement Design and Analysis </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1715: Pavement Maintenance and Rehab </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1717: Components, Properties and Design of Portland Cement Concrete </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1718: Advanced Construction and Bituminous Materials </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1720: Urban Transportation Planning </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1725: Public Transportation Systems </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1730: Highway Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ul>
             
             <b> Construction Management </b>
             <ul>
-            <li> CEE 1609: Life Cycle Assessment Methods and Tools </li>
-            <li> CEE 1610: Engineering and Sustainable Development </li>
-            <li> CEE 1618: Design for the Environment </li>
-            <li> CEE 2201: Construction Cost Engineering </li>
-            <li> CEE 2202: Construction Scheduling </li>
-            <li> CEE 2203: Construction Methods and Equipment </li>
-            <li> CEE 2204: Construction Law and Risk Management </li>
-            <li> CEE 2205: Construction Finance and Cost Control </li>
-            <li> CEE 2206: Construction and Cost of Electricity Supply </li>
-            <li> CEE 2207: Construction and Cost of Mechanical Systems </li>
-            <li> CEE 2230: Building Information Modeling </li>
-            <li> GEOL 1445: GIS, GPS, and Computer Methods </li>
+                <div>
+                    <li> CEE 1609: Life Cycle Assessment Methods and Tools </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1610: Engineering and Sustainable Development </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 1618: Design for the Environment </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2201: Construction Cost Engineering </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2202: Construction Scheduling </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2203: Construction Methods and Equipment </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2204: Construction Law and Risk Management </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2205: Construction Finance and Cost Control </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2206: Construction and Cost of Electricity Supply </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2207: Construction and Cost of Mechanical Systems </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> CEE 2230: Building Information Modeling </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <li> GEOL 1445: GIS, GPS, and Computer Methods </li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
+                    <!-- Pop up dialogue for this course --->
+                    <div class="modal fade" id="sampleCourse" tabindex="-1" role="dialog" aria-labelledby="prereqTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prereqTitle">Sample course</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer elementum purus et elit dignissim, vel laoreet nibh posuere. Cras tortor purus, eleifend id malesuada quis, luctus eget mi. Donec pharetra viverra ullamcorper. Suspendisse quis vehicula massa, vitae hendrerit tortor. Aenean vulputate tincidunt sapien, vel malesuada nunc tristique ut. Ut sit.</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </ul>
             </div>
       </div>
@@ -295,6 +1816,7 @@
     </div>
     <!-- /.container -->
   </footer>
+</div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>

@@ -60,10 +60,10 @@
       background: #f9f9f9;
     }
     /* Set all odd expand button items to a different color (zebra-stripes) */
-    .list ul > div:nth-child(odd) button {
+    .list ul > div:nth-child(odd) button.btn-primary {
       background-color: #f9f9f9;
     }
-    .list ul > div:nth-child(even) button {
+    .list ul > div:nth-child(even) button.btn-primary {
       background-color: #eeeeee;
     }
     /* Darker background-color on hover */
@@ -106,11 +106,13 @@
         color: #212529;
     }
     /* Style the close button */
-    .close {
-      position: absolute;
-      right: 0;
-      top: 0;
-      padding: 12px 16px 12px 16px;
+    .close 
+    {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 12px 16px 12px 16px;
+        background-color: red;
     }
     .close:hover {
       background-color: #f44336;
@@ -139,6 +141,10 @@
       float: left;
       font-size: 16px;
     }
+    .list button.btn-secondary
+      {
+          background-color: #eeeeee;
+      }
     /* Highlight this page on the sidenav */
     .sidenav a#major
     {
@@ -169,12 +175,13 @@
     <a class="nav-link js-scroll-trigger" id="concentrations" href="concentrations.html">Concentration Requirements</a>
 </div>
 
-  <header class="bg-primary text-white">
-    <div class="container text-center">
-      <h1> Bachelor of Science Degree in Civil Engineering Requirements </h1>
-      <p class="lead"> This checklist includes all required core courses, CEE electives, ENGR electives, humanity/social science electives, and senior design projects. </p>
-    </div>
-  </header>
+<div class="content">
+    <header class="bg-primary text-white">
+        <div class="container text-center">
+          <h1> Bachelor of Science Degree in Civil Engineering Requirements </h1>
+          <p class="lead"> This checklist includes all required core courses, CEE electives, ENGR electives, humanity/social science electives, and senior design projects. </p>
+        </div>
+    </header>
 
   <section id="about">
     <div class="container">
@@ -191,23 +198,6 @@
       </div>
     </div>
   </section>
-
-     <!--section id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          <h2>About this page</h2>
-          <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
-          <ul>
-            <li>Clickable nav links that smooth scroll to page sections</li>
-            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-            <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section-->
    
 
   <section id="services" class="bg-light">
@@ -226,9 +216,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1503: Intro to Environmental Engineering</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>Fundamentals of environmental science and engineering as applied to water and wastewater treatment, air quality control, and solid and hazardous waste management.</p>
@@ -249,9 +236,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 0109: Computer Methods in Civil Engineering</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>This course emphasizes the mathematics and problem-solving skills necessary to be an intelligent user of a variety of computational tools for engineering analysis.  The first portion of the course focuses on linear algebra within the context of engineering problems.  Concepts of numerical linear algebra are then introduced, followed by a brief introduction to additional discrete analysis tools such as numerical approximation and signal processing.  Lastly, through the introduction of cad software and an individual term project, students are taught how to independently gain familiarity and confidence with engineering software.</p>
@@ -272,9 +256,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1105: Materials of Construction</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>The nature, physical properties, including environmental aspects of civil engineering construction materials are discussed. Experimentation, where applicable, is utilized.</p>
@@ -295,9 +276,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1330: Introduction to Structural Analysis</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>An introduction to linear analysis of statistically determinate, and indeterminate, elastic structural systems.</p>
@@ -318,9 +296,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1402: Fluid Mechanics</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>A first course in fluid mechanics discussing basic principles and methods for studying static and dynamic behaviors of fluids. In the laboratory the students conduct experiments on fluid flow in pipes and open channels.</p>
@@ -341,9 +316,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1811: Principles of Soil Mechanics</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>Basic soil properties, permeability, capillarity and frost action, compaction, stresses in soil masses, two-dimensional seepage, compressibility, stress-strain-time behavior, and shear strength.</p>
@@ -364,9 +336,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1703: Transportation Engineering</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>Introduction to the design, planning, operation, management, and maintenance of transportation systems. Transportation planning inter-modal transportation systems (highway, air, rails, etc.). Transportation planning of highways, airports, and railroads with traffic flow models, capacity analysis, and safety. Concepts for designing facilities and systems area study with life cycle costing procedures and criteria for optimization.</p>
@@ -387,9 +356,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1200: Construction Management</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>This course introduces undergraduates to the construction management processes including planning, financing, contract administration, and project scheduling and controlling. It is a practical course that provides a broad knowledge of managerial decision-making for young engineers. This is the basic course for all follow-on construction courses.</p>
@@ -410,9 +376,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1412: Introduction to Water Resources Engineering</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>Introduction to the basic concepts of surface water hydrology, meteorology, and fields of water resources engineering. Topics include: hydro-meteorological field measurement and computational methods, historical floods and droughts, flood and drought forecasting, groundwater hydrology, statistical analysis of hydrologic data, urban storm water management, irrigation, urban water supply, operational hydrology, water resources projects, water quality as it relates to hydrology, economic aspects of water resources, and introductions into open channel hydraulics and coastal engineering.</p>
@@ -433,9 +396,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1085: Department Seminar</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>The departmental seminars are designed to acquaint the student with aspects of the civil engineering profession which are not normally encountered in classes and school activities.</p>
@@ -459,9 +419,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1609: Life Cycle Assessment</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>This class will introduce students to life cycle thinking and provide engineers with tools to assess the sustainability and environmental impact of a product, process, or activity. Life cycle assessment (LCA) principles, methods, tools, and challenges will be explored throughout the course. Topics include material and energy flow analysis, environmental indicators and metrics for sustainability, case studies of LCA applications, and impact assessment.</p>
@@ -482,9 +439,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1610: Engineering and Sustainable Development</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>This course is intended as an introductory interdisciplinary engineering course. Topics include principles of sustainable design in engineering, manufacturing, infrastructure, communications, and community development; overview of environmental issues for engineers; design for the environment; models of environmental processes; introduction to the use of life cycle assessment; and case studies examining the relationship of green design and the field of engineering.</p>
@@ -505,9 +459,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CEE 1618: Design for the Environment</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>Design for the environment (DFE) is a specific set of design practices aimed at creating eco-efficient products and processes. Incorporating sustainability into product and process development is considered an engineering design opportunity. Students will be introduced to the DFE toolbox, which includes design for end-of-life, life cycle assessment, biomimicry, the twelve principles of green chemistry and green engineering, alternatives assessment, and materials selection. Students will also be exposed to real world design challenges and hands on group experiences that promote student application of their DFE skills to projects that address sustainability challenges. The course is also intended to be inter-disciplinary and as such, will incorporate toxicity and risk assessment, life cycle costing, business plans and strategies, and supply chain management within the context of DFE and sustainable design.</p>
@@ -531,9 +482,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CHEM 0960: General Chem for Engineers 1</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>CHEM 0960 covers stoichiometry, the properties of solids, liquids and gases, thermochemistry and the electronic structure of atoms and molecules. This course has no lab.</p>
@@ -554,9 +502,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">CHEM 0970: General Chem for Engineers 2</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>CHEM 0970 is a continuation of CHEM 0960, emphasizing applications to industrial and environmental chemistry and biochemistry. This course includes a lab section.</p>
@@ -580,9 +525,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">ENGR 0011: Intro to Engineering Analysis</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>Introduces students to basic topics in engineering, the role of the computer in engineering, ill structured problem-solving and report writing. The course includes material on the use of Unix, HTML, spread sheets, and MATLAB. Data analysis and curve fitting is done in both MATLAB and Excel. The writing component includes four detailed reports and includes an oral presentation. The course goals are: to introduce the fundamentals of what engineering is, what engineers do, why a diverse work force is needed and what values come with working in a group environment; to introduce the required library research skills and communication skills used by all engineers; to introduce the role of the computer in engineering problem solving, including the basic analytical, programming design, graphical, and problem solving skills used by most engineers in their profession; and to provide an overview of how material in the basic sciences and mathematics is applied by engineers to solve practical problems of interest to society.</p>
@@ -603,9 +545,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">ENGR 0081: Freshman Engineering Seminar 1</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>An in-depth orientation in the various areas of engineering and the related fields of employment. Includes small group meetings with departmental representatives and special freshman academic advisors. A formal departmental choice is made at the conclusion of these courses.</p>
@@ -626,9 +565,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">ENGR 0082: Freshman Engineering Seminar 2</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>An in-depth orientation in the various areas of engineering and the related fields of employment. Includes small group meetings with departmental representatives and special freshman academic advisors. A formal departmental choice is made at the conclusion of these courses.</p>
@@ -649,9 +585,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">ENGR 0012: Intro to Engineering Computing</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>Introduces students to social topics in engineering, the role of the computer in engineering, ill-structured problem-solving and report writing. The course includes material on the use of MATLAB and C++. Students learn the fundamentals of computing in engineering, including program design, program development, and debugging. Applications to problems in engineering analysis with topics selected from ENGR 0011. The writing component includes four detailed reports and includes an oral presentation.</p>
@@ -672,9 +605,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">ENGR 0131: Statics for Civil and Environmental Engineers</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>A basic course in statics. Utilizing the free-body diagram, the course covers forces and equilibria of particles, rigid bodies, surfaces, trusses, beams, cables, and other basic structural elements.</p>
@@ -695,9 +625,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">ENGR 0020: Probability and Statistics for Engineers 1</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>An introductory course in statistics. Topics covered include: data analysis, probability, randon variables, selsected discrete and continuous probability distributions, one sample and two sample estimation, hypothesis testing, experiments with two factors and introduction to regression analysis.</p>
@@ -718,9 +645,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">ENGR 0141: Mechanics of Materials for Civil Engineers</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>An introductory course in the mechanics of deformable bodies, with special application to the range of topics needed by civil engineers. The course material covers internal strains, stresses and deformations which occur when a structure is subjected to applied loads. Problems with tie-in to practical design issues will be covered.</p>
@@ -741,9 +665,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">ENGR 0151: Dynamics for Civil Engineers</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>A basic course in dynamics. Utilizing the Newtonian mechanics of particles, the course covers kinematics and kinematics of particles, kinetics of systems of particles, work and energy, introduction to vibration, single-degree-freedom systems, and two-degrees-of-freedom systems. Applications of dynamics in civil engineering problems. Use is made of computer solution to a two-story building vibration.</p>
@@ -767,9 +688,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">ENGCMP 0210: Seminar in Composition Writing</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>Seminar in Composition is a course taken by almost all undergraduates at the University of Pittsburgh. Seminar in Composition: Engineering undertakes the goals of Seminar in Composition within a first-year (and beyond) engineering context. First-year Swanson School of Engineering (SSOE) students in Seminar in Composition: Engineering will explore engineering disciplines, practices, methods, ethics, and education and will analyze their own views and goals as engineering students and as future engineers as they are learning about and practicing writing as a rigorous, disciplined form of critical inquiry and a responsible form of communication. In Seminar in Composition: Engineering, students will strengthen their knowledge and practice of the textual conventions required of university- and professional-level writing and will, via drafting and revision, regularly reexamine the clarity and effects of their writing processes and outcomes. Writing instruction will take place in the ENGR 0011 or 0711 classroom, so students won't have a separate class meeting for ENGCMP 0210; be sure that your ENGR and ENGCMP courses meet at the same day and time in the same classroom.</p>
@@ -790,9 +708,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">ENGCMP 0412: Engineering Communication in a Professional Context</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>ENGCMP 0412 is a required course for all Swanson School of Engineering first-year students enrolled in ENGR 0012. In ENGCMP 0412 students write a significant research paper for the Swanson School of Engineering's Annual Conference on Sustainability, held near the end of the spring term. Students compose this paper in teams of 3; students also compose individual papers reporting and reflecting on their experience with teamwork and with researching, composing, assessing, and presenting written work within a context of maximum personal and professional responsibility and integrity. In ENGCMP 0412 students undertake intensive research into a current engineering innovation/technology. Students expand upon that research as they move through a multi-step process of writing and revising a conference paper that includes considerable technical content as well as intensive analyses of the social value and ethical applications of that technology. Through ENGCMP 0412, students will continue to increase their experience and success with major teamwork projects, will practice best policies and procedures for professional communication and presentation, will continue to learn about and practice communication modes and expectations in engineering, science, and technology, and will continue with an academically and intellectually rigorous process (begun in ENGCMP 0210, Seminar in Composition: Engineering), of understanding and communicating what it means personally, educationally, professionally, socially, and globally to "be an engineer."</p>
@@ -817,9 +732,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">IE 1040: Engineering Economic Analysis</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>This course discusses cost estimation, time value of money, interest rate calculations, economic equivalence concepts, comparison of alternative investments, evaluating economic life and replacement alternatives, depreciation, the impact of taxes on engineering economic decisions, and dealing with uncertainty.</p>
@@ -843,9 +755,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">MATH 0220: Analytic Geometry and Calculus 1</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>This is the first of a sequence of three basic calculus courses.  It covers the derivative and integral of functions of one variable and their applications.</p>
@@ -866,9 +775,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">MATH 0230: Analytic Geometry and Calculus 2</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>This is the second of a sequence of three basic calculus courses.  It covers the calculus of transcendental functions, techniques of integration, series of numbers and functions, polar coordinates, and conic sections.</p>
@@ -889,9 +795,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">MATH 0240: Analytic Geometry and Calculus 3</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>This is the third of a sequence of three basic calculus courses.  It covers vectors and surfaces in space and the calculus of functions of several variables including partial derivatives and multiple integrals, stokes theorem, and first-order differential equations.</p>
@@ -912,9 +815,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">MATH 0290: Differential Equations</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>This course presents an introduction to the theory of differential equations from an applied perspective. Topics include linear and nonlinear ordinary differential equations, Laplace transform, and introduction to partial differential equations.</p>
@@ -938,9 +838,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">PHYS 0174: Basic Physics, Science, and Engineering 1</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>This is the first part of a two-term sequence that introduces students to the basic principles of physics.  An effort has been made to achieve a better integration of physics with the first term of calculus, engineering, and chemistry.  The course covers mechanics and waves. Students planning to major in physics are urged to take the equivalent honors course (Physics 0475)</p>
@@ -961,9 +858,6 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="prereqTitle">PHYS 0175: Basic Physics, Science, and Engineering 2</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p>The integrated curriculum version of PHYS 0105, the second part of a two-term sequence (0174-0175), introduces students to the basic principles of physics. An effort has been made to achieve a better integration of physics with the first term of calculus, engineering, and chemistry. Modern physics (special relativity, elementary quantum mechanics, and atomic structure) will be discussed.</p>
@@ -1134,6 +1028,7 @@
     </div>
     <!-- /.container -->
   </footer>
+</div>
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
