@@ -3,26 +3,182 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <style>
-        /* Highlight this page on the sidenav */
-        .sidenav a#sampleschedule
-        {
-            color: white;
-        }
+    body {
+      margin: 0;
+      min-width: 250px;
+    }
+    /* Include the padding and border in an element's total width and height */
+    * {
+      box-sizing: border-box;
+    }
+    /* Set list margins and padding */
+    .list ul {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 25px;
+    }
+    /* Style the list item containers */
+    .list ul > div
+    {
+        display: flex;
+        height: 54px;
+    }
+    /* Style the list items */
+    .list ul > div li {
+        cursor: pointer;
+        position: relative;
+        height: 54px;
+        padding: 15px;
+        padding-left: 40px;
+
+        list-style-type: none;
+        background: #eee;
+        font-size: 18px;
+        transition: 0.2s;
+        width: 100%;
+        
+        /* Handle text overflows */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        /* Make the list items unselectable */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    /* Set all odd list items to a different color (zebra-stripes) */
+    .list ul > div:nth-child(odd) li {
+      background: #f9f9f9;
+    }
+    /* Set all odd expand button items to a different color (zebra-stripes) */
+    .list ul > div:nth-child(odd) button.btn-primary {
+      background-color: #f9f9f9;
+    }
+    .list ul > div:nth-child(even) button.btn-primary {
+      background-color: #eeeeee;
+    }
+    /* Darker background-color on hover */
+    .list ul > div li:hover {
+      background: #CAD8E6;
+    }
+    /* When clicked on, add a background color and strike out text */
+    .list ul > div li.checked {
+      background: #888;
+      color: #fff;
+      /*text-decoration: line-through;*/
+    }
+    /* Add a "checked" mark when clicked on */
+    .list ul > div li.checked::before {
+      content: '';
+      position: absolute;
+      border-color: #fff;
+      border-style: solid;
+      border-width: 0 2px 2px 0;
+      top: 10px;
+      left: 16px;
+      transform: rotate(45deg);
+      height: 15px;
+      width: 7px;
+    }
+    /* Style the Expand buttons */
+    .list ul > div button
+    {
+        cursor: pointer;
+        border: none;
+        height: 54px;
+        width: 74px;
+        padding: 12px;    
+        color: #212529;
+        border-radius: 0px;
+    }
+    /* Darker background-color on hover */
+    .list ul > div button:hover {
+        background: #CAD8E6;
+        color: #212529;
+    }
+    /* Style the close button */
+    .close 
+    {
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 12px 16px 12px 16px;
+        background-color: red;
+    }
+    .close:hover {
+      background-color: #f44336;
+      color: white;
+    }
+    /* Style the header */
+    .header {
+      background-color: #64B5F6;
+      padding: 30px 40px;
+      color: white;
+      text-align: center;
+    }
+    /* Clear floats after the header */
+    .header:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    /* Style the input */
+    input {
+        margin: 0px !important;
+        margin-bottom: 25px !important;
+        border: none;
+        border-radius: 0;
+        width: 75%;
+        padding: 10px;
+        float: left;
+        font-size: 16px;
+    }
+    .list button.btn-secondary
+      {
+          background-color: #eeeeee;
+      }
+    /* List titles */
+    div.listDiv
+    {
+        background-color: #004a93 !important;
+        
+        flex: 0 0 47% !important;
+        max-width: 47% !important;
+        height: max-content;
+        
+        padding: 0px;
+        margin: 15px;
+    }
+    div.listDiv > p
+    {        
+        color: white !important;
+        font-size: 1.25rem;
+        margin-bottom: 5px;
+        padding-top: 5px;
+    }
+    /* Highlight this page on the sidenav */
+    .sidenav a#sampleschedule
+    {
+        color: white;
+    }
     </style>
 
-  <title>Virtual Advisor</title>
+    <title>Virtual Advisor</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS --->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template -->
-  <link href="css/scrolling-nav.css" rel="stylesheet">
+    <!-- Custom styles for this template --->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
 </head>
 
@@ -48,35 +204,60 @@
     </div>
   </header>
 
-  <section id="first_year">
+
+<section class="separator">
+    <h3>First Year</h3>
+</section>
+  <section id="first_year" class="bg-light">
     <div class="container text-center">
-      <div class="row">
+      <div class="row list">
         <div class="col-md-12">
-          <h2>First Year</h2>
-          <div class="row">
-            <div class="col-md-6">
-              <h3>Fall Semester</h3>
-              <p class="lead"></p>
+          <div class="row list">
+            <div class="col-md-6 listDiv">
+              <p>Fall Semester</p>
               <ul style="list-style-type:none;">
-                <li class="text-left">MATH 0220: ANALYTIC GEOMETRY AND CALCULUS 1 - 4 credits</li>
-                <li class="text-left">CHEM 0960: GENERAL CHEM FOR ENGINEERS 1 - 3 credits</li>
-                <li class="text-left">PHYS 0174: BASIC PHYSICS, SCIENCE AND ENGINEERING 1 (INTEGRATED) - 4 credits</li>
-                <li class="text-left">ENGR 0011: INTRO TO ENGINEERING ANALYSIS - 3 credits</li>
-                <li class="text-left">ENGR 0081: FRESHMAN ENGINEERING SEMINAR 1 - 0 credits</li>
-                <li class="text-left">ENGCMP 0210: SEMINAR IN COMPOSITION: ENGINEERING - 3 credits</li>
+                <div>
+                    <li class="text-left">MATH 0220: Analytic Geometry and Calculus 1</li>
+                </div>
+                <div>  
+                    <li class="text-left">CHEM 0960: General Chem for Engineers 1</li>
+                </div>
+                <div>
+                    <li class="text-left">PHYS 0174: Basic Physics, Science and Engineering 1 (Integrated)</li>
+                </div>  
+                <div>
+                    <li class="text-left">ENGR 0011: Intro to Engineering Analysis</li>
+                </div>
+                <div>
+                    <li class="text-left">ENGR 0081: Freshman Engineering Seminar 1</li>
+                </div>
+                <div>
+                    <li class="text-left">ENGCMP 0210: Seminar in Composition: Engineering</li>
+                </div>
               </ul>
             </div>
-            <div class="col-md-6">
-              <h3>Spring Semester</h3>
-              <p class="lead"></p>
+            <div class="col-md-6 listDiv">
+                <p>Spring Semester</p>
+              
               <ul style="list-style-type:none;">
-                <li class="text-left"></li>
-                <li class="text-left">MATH 0230: ANALYTIC GEOMETRY AND CALCULUS 2 - 4 credits</li>
-                <li class="text-left">CHEM 0970: GENERAL CHEM FOR ENGINEERS 2 - 3 credits</li>
-                <li class="text-left">PHYS 0175: BASIC PHYSICS, SCIENCE AND ENGINEERING 2 (INTEGRATED) - 4 credits</li>
-                <li class="text-left">ENGR 0012: INTRO TO ENGINEERING COMPUTING - 3 credits</li>
-                <li class="text-left">ENGR 0082: FRESHMAN ENGINEERING SEMINAR 2 - 0 credits</li>
-                <li class="text-left">ENGCMP 0412: ENGINEERING COMMUNICATION IN A PROFESSIONAL CONTEXT - 3 credits</li>
+                <div> 
+                    <li class="text-left">MATH 0230: Analytic Geometry and Calculus 2</li>
+                </div>
+                <div> 
+                    <li class="text-left">CHEM 0970: Analytic Geometry and Calculus 2</li>
+                </div>
+                <div> 
+                    <li class="text-left">PHYS 0175: Basic Physics, Science and Engineering 2 (Integrated)</li>
+                </div>
+                <div> 
+                    <li class="text-left">ENGR 0012: Intro to Engineering Computing</li>
+                </div>
+                <div> 
+                    <li class="text-left">ENGR 0082: Freshman Engineering Seminar 2</li>
+                </div>
+                <div> 
+                    <li class="text-left">ENGCMP 0412: Engineering Communication in a Professional Context</li>
+                </div>
               </ul>
             </div>
           </div>
@@ -85,35 +266,62 @@
     </div>
   </section>
 
+<section class="separator">
+    <h3>Second Year</h3>
+</section>
   <section id="second_year" class="bg-light">
     <div class="container text-center">
-      <div class="row">
+      <div class="row list">
         <div class="col-md-12">
-          <h2>Second Year</h2>
-          <div class="row">
-            <div class="col-md-6">
-              <h3>Fall Semester</h3>
-              <p class="lead"></p>
+          <div class="row list">
+            <div class="col-md-6 listDiv">
+              <p>Fall Semester</p>
               <ul style="list-style-type:none;">
-                <li class="text-left">MATH 0240 - ANALYTIC GEOMETRY AND CALCULUS 3 - 4 credits</li>
-                <li class="text-left">ENGR 0131 - STATICS FOR CIVIL AND ENVIRONMENTAL ENGINEERS - 3 credits</li>
-                <li class="text-left">IE 1040 - ENGINEERING ECONOMIC ANALYSIS - 3 credits</li>
-                <li class="text-left">CEE 1503 - INTRO TO ENVIRONMENTAL ENGRNG - 3 credits</li>
-                <li class="text-left">Science Elective - 3 credits</li>
-                <li class="text-left">CEE 1085 - DEPARTMENTAL SEMINAR - 0 credits</li>
+                <div> 
+                    <li class="text-left">MATH 0240: Analytic Geometry and Calculus 3</li>
+                </div>
+                <div> 
+                    <li class="text-left">ENGR 0131: Statics for Civil and Environmental Engineers</li>
+                </div>
+                <div> 
+                    <li class="text-left">IE 1040: Engineering Economic Analysis</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1503: Intro to Environmental Engineering</li>
+                </div>
+                <div> 
+                    <li class="text-left">Science Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1085: Departmental Seminar</li>
+                </div>
               </ul>
             </div>
-            <div class="col-md-6">
-              <h3>Spring Semester</h3>
-              <p class="lead"></p>
+            <div class="col-md-6 listDiv">
+              <p>Spring Semester</p>
+              
               <ul style="list-style-type:none;">
-                <li class="text-left">MATH 0290: DIFFERENTIAL EQUATIONS - 3 credits</li>
-                <li class="text-left">ENGR 0141: MECHC OF MATLS CVL & ENV ENGR - 3 credits</li>
-                <li class="text-left">CEE 0109: COMPUTER METH IN CIVIL ENGRG 1 - 3 credits</li>
-                <li class="text-left">CEE 1105: MATERIALS OF CONSTRUCTION - 3 credits</li>
-                <li class="text-left">ECON 0100: INTRO MICROECONOMIC THEORY - 3 credits</li>
-                <li class="text-left">Science Elective - 3 credits</li>
-                <li class="text-left">CEE 1085: DEPARTMENTAL SEMINAR - 0 credits</li>
+                <div> 
+                    <li class="text-left">MATH 0290: Differential Equations</li>
+                </div>
+                <div> 
+                    <li class="text-left">ENGR 0141: MECHC of MATLS CVL & ENV ENGR</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 0109: Computer Methods in Civil Engrg 1</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1105: Materials of Construction</li>
+                </div>
+                <div> 
+                    <li class="text-left">ECON 0100: Intro Microeconomic Theory</li>
+                </div>
+                <div> 
+                    <li class="text-left">Science Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1085: Departmental Seminar</li>
+                </div>
               </ul>
             </div>
           </div>
@@ -122,36 +330,60 @@
     </div>
   </section>
 
-  <section id="third_year">
+<section class="separator">
+    <h3>Third Year</h3>
+</section>
+  <section id="third_year" class="bg-light">
     <div class="container text-center">
-      <div class="row">
+      <div class="row list">
         <div class="col-md-12">
-          <h2>Third Year</h2>
-          <div class="row">
-            <div class="col-md-6">
-              <h3>Fall Semester</h3>
-              <p class="lead"></p>
+          <div class="row list">
+            <div class="col-md-6 listDiv">
+              <p>Fall Semester</p>
+              
               <ul style="list-style-type:none;">
-                <li class="text-left">CEE 1330: INTRO TO STRUCTURAL ANALYSIS - 3 credits</li>
-                <li class="text-left">CEE 1402: FLUID MECHANICS - 3 credits</li>
-                <li class="text-left">CEE 1811: PRINCIPLES OF SOIL MECHANICS - 3 credits</li>
-                <li class="text-left">ENGR 0151: DYNAMICS CIVIL & ENVRN ENGNRS - 3 credits</li>
-                <li class="text-left">Social Science Elective - 3 credits</li>
-                <li class="text-left">CEE 1085: DEPARTMENTAL SEMINAR - 0 credits</li>
+                <div> 
+                    <li class="text-left">CEE 1330: Intro to Structural Analysis</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1402: Fluid Machanics</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1811: Principles of Soil Mechanics</li>
+                </div>
+                <div> 
+                    <li class="text-left">ENGR 0151: Dynamics CIVIL & ENVRN ENGNRS</li>
+                </div>
+                <div> 
+                    <li class="text-left">Social Science Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1085: Departmental Seminar</li>
+                </div>
               </ul>
             </div>
-            <div class="col-md-6">
-              <h3>Spring Semester</h3>
-              <p class="lead"></p>
+            <div class="col-md-6 listDiv">
+              <p>Spring Semester</p>
+              
               <ul style="list-style-type:none;">
-                <li class="text-left">CEE 1200: CONSTRUCTION MANAGEMENT - 3 credits</li>
-                <li class="text-left">CEE 1609: LIFE CYCL ASSMNT METHODS TOOLS or - 3 credits</li>
-                <li class="text-left">CEE 1610: ENGR SUSTAINABLE DEVELOPMENT or - 3 credits</li>
-                <li class="text-left">CEE 1618: DESIGN FOR THE ENVIRONMENT - 3 credits</li>
-                <li class="text-left">CEE 1412: INTRODUCTION TO HYDROLOGY - 3 credits</li>
-                <li class="text-left">CEE 1703: TRANSPORTATION ENGINEERING - 3 credits</li>
-                <li class="text-left">CEE Design Elective - 3 credits</li>
-                <li class="text-left">CEE 1085: DEPARTMENTAL SEMINAR - 0 credits</li>
+                <div> 
+                    <li class="text-left">CEE 1200: Construction Management</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1609: Life Cycle Assessment Methods Tools</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1412: Introduction to Hydrology</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1703: Transportation Engineering</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE Design Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1085: Departmental Seminar</li>
+                </div>
               </ul>
             </div>
           </div>
@@ -160,39 +392,61 @@
     </div>
   </section>
 
+<section class="separator">
+    <h3>Fourth Year</h3>
+</section>
   <section id="fourth_year" class="bg-light">
     <div class="container text-center">
-      <div class="row">
+      <div class="row list">
         <div class="col-md-12">
-          <h2>Fourth Year</h2>
-          <div class="row">
-            <div class="col-md-6">
-              <h3>Fall Semester</h3>
-              <p class="lead"></p>
+          <div class="row list">
+            <div class="col-md-6 listDiv">
+              <p>Fall Semester</p>
               <ul style="list-style-type:none;">
-                <li class="text-left">CEE: Elective - 3 credits</li>
-                <li class="text-left">CEE: Elective - 3 credits</li>
-                <li class="text-left">CE: Design Elective - 3 credits</li>
-                <li class="text-left">Engineering Elective Elective - 3 credits</li>
-                <li class="text-left">Humanities/Social Science Elective - 3 credits</li>
-                <li class="text-left">CEE 1085 - DEPARTMENTAL SEMINAR - 0 credits</li>
+                <div> 
+                    <li class="text-left">CEE: Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE: Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">CE: Design Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">Engineering Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">Humanities/Social Science Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1085: Departmental Seminar</li>
+                </div>
               </ul>
             </div>
-            <div class="col-md-6">
-              <h3>Spring Semester</h3>
-              <p class="lead"></p>
+            <div class="col-md-6 listDiv">
+              <p>Spring Semester</p>
               <ul style="list-style-type:none;">
-                <li class="text-left">Humanities/Social Science Elective - 3 credits</li>
-                <li class="text-left">CEE 1333: STRUCTURAL DESIGN PROJECT or - 3 credits</li>
-                <li class="text-left">CEE 1233: CONSTRUCTION DESIGN PROJECT or  - 3 credits</li>
-                <li class="text-left">CEE 1433: WATER RESOURCES DESIGN PROJECT - 3 credits</li>
-                <li class="text-left">CEE 1533: ENVRL ENGR DESIGN PROJECT or - 3 credits</li>
-                <li class="text-left">CEE 1733: TRANSPORTATION DESIGN PROJECT or - 3 credits</li>
-                <li class="text-left">CEE 1833: GEOTECHNICAL DESIGN PROJECT - 3 credits</li>
-                <li class="text-left">CEE: Elective - 3 credits**</li>
-                <li class="text-left">CEE: Elective - 3 credits**</li>
-                <li class="text-left">CEE: Elective - 3 credits**</li>
-                <li class="text-left">CEE 1085: DEPARTMENTAL SEMINAR - 0 credits</li>
+                <div> 
+                    <li class="text-left">Humanities/Social Science Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1333: Structural Design Project</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1533: ENVRL ENGR Design Project</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE Elective</li>
+                </div>
+                <div> 
+                    <li class="text-left">CEE 1085: Departmental Seminar</li>
+                </div>
               </ul>
             </div>
           </div>

@@ -8,9 +8,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
   
-  <!-- begin style================================================== -->
-  
-  <style>
+    <!-- begin style================================================== -->
+
+    <style>
     body {
       margin: 0;
       min-width: 250px;
@@ -19,10 +19,11 @@
     * {
       box-sizing: border-box;
     }
-    /* Remove margins and padding from the list */
+    /* Set list margins and padding */
     .list ul {
-      margin: 0;
-      padding: 0;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 25px;
     }
     /* Style the list item containers */
     .list ul > div
@@ -32,29 +33,29 @@
     }
     /* Style the list items */
     .list ul > div li {
-      cursor: pointer;
-      position: relative;
-      height: 54px;
-      padding: 12px 8px 12px 40px;
-      list-style-type: none;
-      background: #eee;
-      font-size: 18px;
-      transition: 0.2s;
-        
-      /* Make each list item 80% the width of the ul container */
-      width: 80%;
+        cursor: pointer;
+        position: relative;
+        height: 54px;
+        padding: 15px;
+        padding-left: 40px;
 
-      /* make the list items unselectable */
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+        list-style-type: none;
+        background: #eee;
+        font-size: 18px;
+        transition: 0.2s;
+        width: 100%;
+        
+        /* Handle text overflows */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        /* Make the list items unselectable */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
-    /* For the lists that do not have more info to show on a pop up, make the list items take up the full width */
-      .list ul.noButtonList > div li
-      {
-          width: 90%;
-      }
     /* Set all odd list items to a different color (zebra-stripes) */
     .list ul > div:nth-child(odd) li {
       background: #f9f9f9;
@@ -68,7 +69,7 @@
     }
     /* Darker background-color on hover */
     .list ul > div li:hover {
-      background: #BBDEFB;
+      background: #CAD8E6;
     }
     /* When clicked on, add a background color and strike out text */
     .list ul > div li.checked {
@@ -102,7 +103,7 @@
     }
     /* Darker background-color on hover */
     .list ul > div button:hover {
-        background: #BBDEFB;
+        background: #CAD8E6;
         color: #212529;
     }
     /* Style the close button */
@@ -133,13 +134,14 @@
     }
     /* Style the input */
     input {
-      margin: 0;
-      border: none;
-      border-radius: 0;
-      width: 75%;
-      padding: 10px;
-      float: left;
-      font-size: 16px;
+        margin: 0px !important;
+        margin-bottom: 25px !important;
+        border: none;
+        border-radius: 0;
+        width: 75%;
+        padding: 10px;
+        float: left;
+        font-size: 16px;
     }
     .list button.btn-secondary
       {
@@ -150,16 +152,29 @@
     {
         color: white;
     }
-  </style>
-  
-  <!-- end style =================================================== -->
-  <title>Virtual Advisor</title>
+    /* List titles */
+    div.listDiv
+    {
+        background-color: #004a93 !important;
+    }
+    div.listDiv > p
+    {        
+        color: white !important;
+        font-size: 1.25rem;
+        margin-bottom: 5px;
+        padding-top: 5px;
+    }
+    </style>
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- end style =================================================== -->
+    <title>Virtual Advisor</title>
 
-  <!-- Custom styles for this template -->
-  <link href="css/scrolling-nav.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
 </head>
 
@@ -183,13 +198,16 @@
   </header>
 
 
+<section class="separator">
+    <h3>Design Electives</h3>
+</section>
   <section id="services" class="bg-light">
     <div class="container">
       <div class="row list">
         <div class="col-lg-8 mx-auto">
-          <h2> Design Electives </h2>
-           <b> Structural Engineering </b>
-            <ul>
+            <div class="listDiv">
+                <p>Structural Engineering</p>
+                <ul>
                 <div>
                     <li> CEE 1335: Design of Structures </li>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
@@ -211,8 +229,10 @@
                     </div>
                 </div>
             </ul>
-            <b> Water Resources Engineering </b>
-            <ul>
+            </div>
+            <div class="listDiv">
+                <p> Water Resources Engineering </p>
+                <ul>
                 <div>    
                     <li> CEE 1401: Open Channel Hydraulics Design </li>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
@@ -254,8 +274,10 @@
                     </div>
                 </div>
            </ul> 
-            <b> Environmental Engineering </b>
-            <ul> 
+            </div>
+            <div class="listDiv">
+                <p> Environmental Engineering </p>
+                <ul> 
                 <div>
                     <li> CEE 1505: Water Treatment and Distribution System Design </li>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
@@ -317,8 +339,10 @@
                     </div>
                 </div>
               </ul> 
-            <b> Geotechnical Engineering </b>
-            <ul>
+            </div>
+            <div class="listDiv">
+                <p> Geotechnical Engineering </p>
+                <ul>
                 <div>
                     <li> CEE 1821: Foundation Engineering </li>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
@@ -440,9 +464,10 @@
                     </div>
                 </div>
             </ul> 
-          
-            <b> Transportation Engineering </b>  
-            <ul> 
+            </div>
+            <div class="listDiv">
+                <p> Transportation Engineering </p>  
+                <ul> 
                 <div>
                     <li> CEE 1700: Traffic Management and Operations </li>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
@@ -484,21 +509,22 @@
                     </div>
                 </div>
             </ul> 
-           
+            </div>
         </div>
       </div>
     </div>
   </section>
 
-    
-    
+<section class="separator">
+    <h3>CEE Electives</h3>
+</section>  
     <section id="contact" class="bg-light">
     <div class="container">
       <div class="row list">
         <div class="col-lg-8 mx-auto">
-             <h2> CEE Electives  </h2>
-            <b> Structural Engineering </b>
-            <ul> 
+            <div class="listDiv">
+                <p> Structural Engineering </p>
+                <ul> 
                 <div>
                     <li> CEE 1340: Concrete Structures 1 </li>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
@@ -741,9 +767,10 @@
                 </div>
             
                 </ul> 
-            
-            <b> Water Resources Engineering </b>
-             <ul>
+            </div>
+            <div class="listDiv">
+                <p> Water Resources Engineering </p>
+                <ul>
                 <div>
                     <li> CEE 1401: Open Channel Hydraulics Design </li>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
@@ -805,9 +832,10 @@
                     </div>
                  </div>
             </ul>
-            
-            <b> Environmental Engineering </b>
-            <ul>
+            </div>
+            <div class="listDiv">
+                <p> Environmental Engineering </p>
+                <ul>
                 <div>
                     <li> CEE 1504: Chemistry in Civil Engineering </li>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
@@ -1029,9 +1057,10 @@
                     </div>
                 </div>
             </ul>
-            
-            <b> Geotechnical Engineering </b>
-            <ul>
+            </div>
+            <div class="listDiv">
+                <p> Geotechnical Engineering </p>
+                <ul>
                 <div>
                     <li> CEE 1340: Concrete Structures 1 </li>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
@@ -1353,9 +1382,10 @@
                     </div>
                 </div>
              </ul>
-            
-            <b> Transportation Engineering </b>
-            <ul>
+            </div>
+            <div class="listDiv">
+                <p> Transportation Engineering </p>
+                <ul>
                 <div>
                     <li> CEE 1700: Traffic Management and Operations </li>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
@@ -1557,9 +1587,10 @@
                     </div>
                 </div>
             </ul>
-            
-            <b> Construction Management </b>
-            <ul>
+            </div>
+            <div class="listDiv">
+                <p> Construction Management </p>
+                <ul>
                 <div>
                     <li> CEE 1609: Life Cycle Assessment Methods and Tools </li>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sampleCourse">More</button>
@@ -1802,6 +1833,7 @@
                 </div>
             </ul>
             </div>
+        </div>
       </div>
     </div>
   </section>
