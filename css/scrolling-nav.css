@@ -8,7 +8,7 @@ header {
 }
 
 section {
-  padding: 40px 0;
+  padding: 5px 0;
 }
 
 ul
@@ -20,7 +20,7 @@ img.swanson
 {
     display: block;
     margin: auto;
-    width: 200px;
+    width: 270px;
     height: auto;
 }
 
@@ -36,13 +36,14 @@ li.nav-item a
 
 div.content
 {
-    margin-left: 230px;
+    margin-left: 300px;
+    border-right: 10px solid #212529;
 }
 
 /* Sidenav credit to https://www.w3schools.com/howto/howto_js_sidenav.asp */
 .sidenav {
   height: 100%;
-  width: 230px;
+  width: 300px;
   position: fixed;
   top: 0;
   left: 0;
@@ -77,4 +78,3 @@ div.content
   font-size: 36px;
   margin-left: 50px;
 }
-

@@ -1,50 +1,80 @@
-.contact-form{
-    background: #fff;
-    margin-top: 10%;
-    margin-bottom: 5%;
-    width: 70%;
-}
-.contact-form .form-control{
-    border-radius:1rem;
-}
-.contact-image{
-    text-align: center;
-}
-.contact-image img{
-    border-radius: 6rem;
-    width: 11%;
-    margin-top: -3%;
-    transform: rotate(29deg);
-}
-.contact-form form{
-    padding: 14%;
-}
-.contact-form form .row{
-    margin-bottom: -7%;
-}
-.contact-form h3{
-    margin-bottom: 8%;
-    margin-top: -10%;
-    text-align: center;
-    color: #0062cc;
-}
-.contact-form .btnContact {
-    width: 50%;
-    border: none;
-    border-radius: 1rem;
-    padding: 1.5%;
-    background: #dc3545;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-}
-.btnContactSubmit
+div.content
 {
-    width: 50%;
-    border-radius: 1rem;
-    padding: 1.5%;
-    color: #fff;
-    background-color: #0062cc;
-    border: none;
-    cursor: pointer;
+    background-color: #cad8e6 !important;
+}
+
+header.bg-primary
+{
+    background-color: #f9f9f9 !important;   
+    color: #004a93 !important;
+}
+
+section p
+{
+    text-align: center;
+    color: #004a93 !important;
+}
+
+section.bg-light
+{
+    background-color: #cad8e6 !important;
+}
+
+section.bg-light ul
+{
+    border: 3px solid #004a93;
+}
+
+section.separator
+{
+    border-top: 10px #212529 solid;
+    background-color: #004a93 !important;
+    color: #f9f9f9 !important;
+    height: 60px;
+    padding: 3px 0px;
+    text-align: center !important;
+    margin-bottom: 20px;
+}
+
+section.separator h3
+{
+    height: 50px;
+    line-height: 40px;
+}
+
+/*
+section.bg-light h2
+{
+    color: white !important;
+}
+
+section.bg-light b
+{
+    color: white !important;
+}
+*/
+
+footer.bg-dark
+{
+    border-top: 10px #212529 solid;
+    background-color: #004a93 !important;
+}
+
+div.formDiv
+{
+    display: block;
+    text-align: center;
+}
+
+div.formDiv form
+{
+    display: inline-block;
+    margin: 0px auto;
+    width: 350px;
+}
+
+div.formDiv form input
+{
+    border: 3px solid #004a93;
+    width: 100%;
 }
